@@ -1,0 +1,10 @@
+INSERT INTO departamentos (deptno, dnombre, loc) VALUES (1, 'Ventas', 'Salamanca');
+INSERT INTO departamentos (deptno, dnombre, loc) VALUES (2, 'Comercial', 'Madrid');
+INSERT INTO departamentos (deptno, dnombre, loc) VALUES (3, 'Contabilidad', 'Murcia');
+INSERT INTO departamentos (deptno, dnombre, loc) VALUES (4, 'RRHH', 'Zamora');
+INSERT INTO departamentos (deptno, dnombre, loc) VALUES (5, 'Investigación', 'Madrid');
+INSERT INTO empleados (empno, apellido, oficio, dir, fecha_alt, salario, comision, dept_no) VALUES (1, 'García', 'Director', 1, '2010-02-07', 1890, 10, 1);
+INSERT INTO empleados (empno, apellido, oficio, dir, fecha_alt, salario, comision, dept_no) VALUES (2, 'Pérez', 'Operario', 1, '2015-07-07', 1100, 7, 1);
+INSERT INTO empleados (empno, apellido, oficio, dir, fecha_alt, salario, comision, dept_no) VALUES (3, 'Gómez', 'Operario', 1, '2016-01-01', 1100, 7, 1);
+INSERT INTO empleados (empno, apellido, oficio, dir, fecha_alt, salario, comision, dept_no) VALUES (4, 'Santiago', 'Director', 4, '2010-01-01', 2100, 12, 2);
+INSERT INTO empleados (empno, apellido, oficio, dir, fecha_alt, salario, comision, dept_no) VALUES (5, 'Redondo', 'Auxiliar', 4, '2002-02-01', 1700, 9, 2);
