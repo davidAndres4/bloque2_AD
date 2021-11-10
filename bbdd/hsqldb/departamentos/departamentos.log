@@ -1,0 +1,6 @@
+/*C1*/SET SCHEMA SYSTEM_LOBS
+INSERT INTO BLOCKS VALUES(0,2147483647,0)
+COMMIT
+/*C2*/SET SCHEMA PUBLIC
+create table departamentos (dept_no integer not null primary key, dnombre varchar(15), loc varchar(15))
+DISCONNECT
