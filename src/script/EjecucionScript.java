@@ -20,9 +20,34 @@ public class EjecucionScript {
 	private static ResultSet rs = null;
 
 	public static void main(String[] args) {
-		creaBBDD();
+		conectaBBDD();
 		ejecutaScript();
-
+		selectDptosEmpleados();
+	}
+	
+	public static void selectDptosEmpleados() {
+		int i = 0;
+		
+		try {
+			System.out.println("\nDEPARTAMENTOS:");
+			rs = statement.executeQuery("select * from departamentos");
+			while(rs.next()){
+		          
+		          System.out.println("id = " + rs.getInt("deptno") + "\t" + rs.getString("dnombre") + " (" + rs.getString("loc") + ")");
+		    }
+			
+			System.out.println("\nEMPLEADOS:");
+			rs = statement.executeQuery("select * from empleados");
+			while(rs.next()){      
+		          System.out.println(rs.getInt("empno") + "\t" + rs.getString("apellido")
+		          + "\t" + rs.getString("oficio") + "\t" + rs.getInt("dir") 
+		          + "\t" + rs.getString("fecha_alt") + "\t" + rs.getInt("salario")
+		          + "\t" + rs.getInt("comision") + "\t" + rs.getInt("dept_no"));
+		    }
+		} catch (SQLException e) {
+			
+			e.printStackTrace();
+		}
 	}
 
 	public static void ejecutaScript() {
@@ -42,7 +67,7 @@ public class EjecucionScript {
 
 			System.out.println(script.toString());
 
-			statement.executeQuery(script.toString());
+			statement.executeUpdate(script.toString());
 
 			bf.close();
 		} catch (IOException | SQLException e) {
@@ -54,18 +79,49 @@ public class EjecucionScript {
 	}
 
 
-	public static void creaBBDD() {
+	public static void conectaBBDD() {
 		try {
 			//establece la conexión
 			connection = DriverManager.getConnection("jdbc:hsqldb:file:bbdd/script/dosTablas/empresa");
 			statement = connection.createStatement();
 
-			
-
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
-
+	}
+	
+	public static void cierraConexionBBDD() {
+		if(connection != null)
+			try {
+				connection.close();
+				
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 	}
 
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
